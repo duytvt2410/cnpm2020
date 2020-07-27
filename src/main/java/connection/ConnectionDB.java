@@ -7,50 +7,27 @@ import java.sql.*;
 public class ConnectionDB {
 	static Connection con;
 
-	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-		URI dbUri;
-		try {
-			dbUri = new URI(System.getenv("DATABASE_URL"));
-			String username = dbUri.getUserInfo().split(":")[0];
-	        String password = dbUri.getUserInfo().split(":")[1];
-	        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-	        if (con == null || con.isClosed()) {
-				Class.forName("org.postgresql.Driver");
-				con = DriverManager.getConnection(dbUrl, username, password);
-				return con;
-			} else {
-				return con;
-			}
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public static Connection getConnection() throws ClassNotFoundException, SQLException, URISyntaxException {
+		 URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
-      
-		return con;
+		    String username = dbUri.getUserInfo().split(":")[0];
+		    String password = dbUri.getUserInfo().split(":")[1];
+		    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+
+		    return DriverManager.getConnection(dbUrl, username, password);
 		
 	}
 
-	public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, SQLException {
-		URI dbUri;
-		try {
-			dbUri = new URI(System.getenv("DATABASE_URL"));
-			String username = dbUri.getUserInfo().split(":")[0];
-	        String password = dbUri.getUserInfo().split(":")[1];
-	        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-	        if (con == null || con.isClosed()) {
-				Class.forName("org.postgresql.Driver");
-				con = DriverManager.getConnection(dbUrl, username, password);
+	public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, SQLException, URISyntaxException {
+		 URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
-			}
-		} catch (URISyntaxException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		    String username = dbUri.getUserInfo().split(":")[0];
+		    String password = dbUri.getUserInfo().split(":")[1];
+		    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 
         
 		
-		return con.prepareStatement(sql);
+		return DriverManager.getConnection(dbUrl, username, password).prepareStatement(sql);
 
 	}
 

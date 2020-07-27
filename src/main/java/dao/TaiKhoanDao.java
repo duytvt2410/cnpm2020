@@ -3,6 +3,7 @@ package dao;
 import connection.ConnectionDB;
 import model.TaiKhoan;
 
+import java.net.URISyntaxException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -57,14 +58,14 @@ public class TaiKhoanDao {
                 return true;
             }
             cons.close();
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (ClassNotFoundException | SQLException | URISyntaxException ex) {
             Logger.getLogger(TaiKhoanDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
 
     //Them tai khoan vao trong database:
-    public void themTaiKhoan(TaiKhoan taiKhoan) {
+    public void themTaiKhoan(TaiKhoan taiKhoan) throws URISyntaxException {
         String sql = "INSERT INTO `taikhoan` VALUE (?,?,?,?,?,?)";
         try {
             Connection conn = ConnectionDB.getConnection();
@@ -98,7 +99,7 @@ public class TaiKhoanDao {
 				taiKhoan.setEmail(rs.getString(3));
 			}
 			cons.close();
-		} catch (ClassNotFoundException | SQLException ex) {
+		} catch (ClassNotFoundException | SQLException | URISyntaxException ex) {
 			return null;
 		}
 		return taiKhoan;

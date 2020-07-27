@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,7 +28,7 @@ public class Chitietsanpham extends HttpServlet {
             request.setAttribute("p", p);
             request.getRequestDispatcher("chitietsanpham.jsp").forward(request, response);
 
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (ClassNotFoundException | SQLException | URISyntaxException e) {
             e.printStackTrace();
         }
     }
