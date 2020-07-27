@@ -1,30 +1,55 @@
 package connection;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.*;
 
 public class ConnectionDB {
 	static Connection con;
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
-		if (con == null || con.isClosed()) {
-			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection(
-					"jdbc:postgresql://ec2-54-197-254-117.compute-1.amazonaws.com:5432/dddovfb35cnuba",
-					"knzaihosxxkwov", "86dc869c0bb38be1274780cdfa84cb3f46252ecc0b62112ad31808620c8ca811");
-			return con;
-		} else {
-			return con;
+		URI dbUri;
+		try {
+			dbUri = new URI(System.getenv("DATABASE_URL"));
+			String username = dbUri.getUserInfo().split(":")[0];
+	        String password = dbUri.getUserInfo().split(":")[1];
+	        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+	        if (con == null || con.isClosed()) {
+				Class.forName("org.postgresql.Driver");
+				con = DriverManager.getConnection(dbUrl, username, password);
+				return con;
+			} else {
+				return con;
+			}
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
+      
+		return con;
+		
 	}
 
 	public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, SQLException {
-		if (con == null || con.isClosed()) {
-			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection(
-					"jdbc:postgresql://ec2-54-197-254-117.compute-1.amazonaws.com:5432/dddovfb35cnuba",
-					"knzaihosxxkwov", "86dc869c0bb38be1274780cdfa84cb3f46252ecc0b62112ad31808620c8ca811");
+		URI dbUri;
+		try {
+			dbUri = new URI(System.getenv("DATABASE_URL"));
+			String username = dbUri.getUserInfo().split(":")[0];
+	        String password = dbUri.getUserInfo().split(":")[1];
+	        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+	        if (con == null || con.isClosed()) {
+				Class.forName("org.postgresql.Driver");
+				con = DriverManager.getConnection(dbUrl, username, password);
 
+			}
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+
+        
+		
 		return con.prepareStatement(sql);
 
 	}
