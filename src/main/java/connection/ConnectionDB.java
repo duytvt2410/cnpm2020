@@ -1,33 +1,42 @@
 package connection;
 
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class ConnectionDB {
 	static Connection con;
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException, URISyntaxException {
-		 URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
-		    String username = dbUri.getUserInfo().split(":")[0];
-		    String password = dbUri.getUserInfo().split(":")[1];
-		    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+		String dbUrl = System.getenv("JDBC_DATABASE_URL");
 
-		    return DriverManager.getConnection(dbUrl, username, password);
 		
+
+		if (con == null || con.isClosed()) {
+			Class.forName("org.postgresql.Driver");
+			con = DriverManager.getConnection(dbUrl);
+			return con;
+		} else {
+			return con;
+		}
+
 	}
 
-	public static PreparedStatement getPreparedStatement(String sql) throws ClassNotFoundException, SQLException, URISyntaxException {
-		 URI dbUri = new URI(System.getenv("DATABASE_URL"));
+	public static PreparedStatement getPreparedStatement(String sql)
+			throws ClassNotFoundException, SQLException, URISyntaxException {
+		String dbUrl = System.getenv("JDBC_DATABASE_URL");
+		if (con == null || con.isClosed()) {
+			Class.forName("org.postgresql.Driver");
+			con = DriverManager.getConnection(dbUrl);
+			return con.prepareStatement(sql);
+		} else {
+			return con.prepareStatement(sql);
+		}
 
-		    String username = dbUri.getUserInfo().split(":")[0];
-		    String password = dbUri.getUserInfo().split(":")[1];
-		    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-        
-		
-		return DriverManager.getConnection(dbUrl, username, password).prepareStatement(sql);
 
 	}
 
