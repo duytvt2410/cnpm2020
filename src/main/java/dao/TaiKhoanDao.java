@@ -66,7 +66,7 @@ public class TaiKhoanDao {
 
     //Them tai khoan vao trong database:
     public void themTaiKhoan(TaiKhoan taiKhoan) throws URISyntaxException {
-        String sql = "INSERT INTO taikhoan VALUE (?,?,?,?,?,?)";
+        String sql = "INSERT INTO taikhoan VALUES (?,?,?,?,?,?)";
         try {
             Connection conn = ConnectionDB.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
