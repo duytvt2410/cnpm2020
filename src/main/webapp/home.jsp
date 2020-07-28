@@ -33,7 +33,10 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-	
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/option-selectors.js" type="text/javascript"></script>
+<script src="js/api.jquery.js?4" type="text/javascript"></script>
+<script src="js/owl.carousel.min.js" type="text/javascript"></script>
 	
 	
 	
@@ -117,19 +120,19 @@
 
                     <li class="clearfix">
                         <a href="" title="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt"></a>
-                        <img width="100" height="70" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
+                        <img width="100" height="70" src="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
                         <h3>Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt</h3>
                         <span>26/Tháng Hai/2019</span>
                     </li>
                     <li class="clearfix">
                         <a href="" title="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt"></a>
-                        <img width="100" height="70" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
+                        <img width="100" height="70" src="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
                         <h3>Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt</h3>
                         <span>26/Tháng Hai/2019</span>
                     </li>
                     <li class="clearfix">
                         <a href="" title="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt"></a>
-                        <img width="100" height="70" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
+                        <img width="100" height="70" src="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
                         <h3>Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt</h3>
                         <span>26/Tháng Hai/2019</span>
                     </li>
