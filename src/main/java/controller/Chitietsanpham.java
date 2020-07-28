@@ -2,6 +2,7 @@ package controller;
 
 import connection.ConnectionDB;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,8 @@ public class Chitietsanpham extends HttpServlet {
             if (type != null) sql1 += " and id=" + type;
             ResultSet p = s1.executeQuery(sql1);
             request.setAttribute("p", p);
-            request.getRequestDispatcher("chitietsanpham.jsp").forward(request, response);
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("/chitietsanpham.jsp");
+            rd.forward(request, response);
 
         } catch (ClassNotFoundException | SQLException | URISyntaxException e) {
             e.printStackTrace();
