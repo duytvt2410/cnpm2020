@@ -47,7 +47,7 @@ public class TrangChuController extends HttpServlet {
 //        rd.forward(request, response);	
 //	}
     	
-    	RequestDispatcher rd = getServletContext().getRequestDispatcher("/trangchu.jsp");
+    	RequestDispatcher rd = getServletContext().getRequestDispatcher("/home.jsp");
     	rd.forward(request, response);
     }
 
