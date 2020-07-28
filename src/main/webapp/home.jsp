@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="utils.Utils" %><%@ page import="java.sql.ResultSet" %>
+<%@ page import="model.GioHang" %>
+<%@ page import="model.SanPham" %>
+<%@ page import="connection.ConnectionDB" %>
+<%@ page import="java.sql.PreparedStatement" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -147,6 +152,46 @@
         </div>
     </div>
 
+</section>
+
+<section class="awe-section-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="promo-title">
+                    <a class="promo-title-a" href="sanpham.jsp" title="Giá sốc cuối tuần">Giá sốc cuối tuần</a>
+                    <div id="owl-promo" class="section-tour-owl2 owl-carousel not-dqowl">
+                        <%
+                            ResultSet b2 = (ResultSet) request.getAttribute("b2");
+                            while (b2.next()){
+                        %>
+                        <div class="item">
+
+                            <div class="news-item-products">
+
+                                <a href="<%=Utils.fullPath("Chitietsanpham?id="+b2.getInt(1))%>" title="<%=b2.getString(5)%>"></a>
+                                <div class="relative fix-images">
+                                    <img src="<%=b2.getString(2)%>"   class="img-responsive center-block" />
+                                    <label class="per">Giảm  5% </label>
+                                </div>
+                                <h3><%=b2.getString(6)%></h3>
+                                <div class="price">
+                                    <strong><%=b2.getString(3)%>
+
+                                    </strong>
+                                    <span><%=b2.getString(4)%></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <% } %>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 	
 	
