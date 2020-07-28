@@ -40,10 +40,11 @@ public class TrangChuController extends HttpServlet {
 			request.setAttribute("b5", b5);
 
 			RequestDispatcher rd = getServletContext().getRequestDispatcher("/trangchu.jsp");
-	        rd.forward(request, response);
+	        rd.forward(request, response);	
 
 	} catch (ClassNotFoundException | SQLException | URISyntaxException e) {
-		e.printStackTrace();
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/trangchu.jsp");
+        rd.forward(request, response);	
 	}
     }
 
