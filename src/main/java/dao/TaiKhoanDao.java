@@ -58,7 +58,7 @@ public class TaiKhoanDao {
                 return true;
             }
             cons.close();
-        } catch (ClassNotFoundException | SQLException | URISyntaxException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(TaiKhoanDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
@@ -99,7 +99,7 @@ public class TaiKhoanDao {
 				taiKhoan.setEmail(rs.getString(3));
 			}
 			cons.close();
-		} catch (ClassNotFoundException | SQLException | URISyntaxException ex) {
+		} catch (ClassNotFoundException | SQLException ex) {
 			return null;
 		}
 		return taiKhoan;

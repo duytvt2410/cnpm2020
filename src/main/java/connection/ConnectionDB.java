@@ -10,28 +10,34 @@ import java.sql.SQLException;
 public class ConnectionDB {
 	static Connection con;
 
-	public static Connection getConnection() throws URISyntaxException, SQLException, ClassNotFoundException {
-		Class.forName("org.postgresql.Driver");
-		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-		String username = dbUri.getUserInfo().split(":")[0];
-		String password = dbUri.getUserInfo().split(":")[1];
-		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-		return DriverManager.getConnection(dbUrl, username, password);
+	public static Connection getConnection() throws ClassNotFoundException, SQLException {
+		if (con == null || con.isClosed()) {
+			Class.forName("org.postgresql.Driver");
+			String username = "knzaihosxxkwov";
+			String password = "86dc869c0bb38be1274780cdfa84cb3f46252ecc0b62112ad31808620c8ca811";
+			String dbUrl = "jdbc:postgresql://"+"ec2-54-197-254-117.compute-1.amazonaws.com:5432"+"/dddovfb35cnuba";
+			
+			con = DriverManager.getConnection(dbUrl, username, password);
+			return con;
+		} else {
+			return con;
+		}
 
 	}
 
 	public static PreparedStatement getPreparedStatement(String sql)
 			throws ClassNotFoundException, SQLException, URISyntaxException {
-		Class.forName("org.postgresql.Driver");
-		URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-	    String username = dbUri.getUserInfo().split(":")[0];
-	    String password = dbUri.getUserInfo().split(":")[1];
-	    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-	    return DriverManager.getConnection(dbUrl, username, password).prepareStatement(sql);
+		if (con == null || con.isClosed()) {
+			Class.forName("org.postgresql.Driver");
+			String username = "knzaihosxxkwov";
+			String password = "86dc869c0bb38be1274780cdfa84cb3f46252ecc0b62112ad31808620c8ca811";
+			String dbUrl = "jdbc:postgresql://"+"ec2-54-197-254-117.compute-1.amazonaws.com:5432"+"/dddovfb35cnuba";
+			
+			con = DriverManager.getConnection(dbUrl, username, password);
+			return con.prepareStatement(sql);
+		} else {
+			return con.prepareStatement(sql);
+		}
 
 	}
 
