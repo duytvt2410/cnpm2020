@@ -49,7 +49,7 @@ public class TaiKhoanDao {
 
     //Kiem tra tai khoan nay da ton tai hay chua:
     public boolean kiemTraTaiKhoan(String userName) {
-        String sql = "SELECT * FROM `taikhoan` WHERE tenDangNhap= '" + userName + "'";
+        String sql = "SELECT * FROM taikhoan WHERE tenDangNhap= '" + userName + "'";
         try {
             Connection cons = ConnectionDB.getConnection();
             PreparedStatement ps = cons.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class TaiKhoanDao {
 
     //Them tai khoan vao trong database:
     public void themTaiKhoan(TaiKhoan taiKhoan) throws URISyntaxException {
-        String sql = "INSERT INTO `taikhoan` VALUE (?,?,?,?,?,?)";
+        String sql = "INSERT INTO taikhoan VALUE (?,?,?,?,?,?)";
         try {
             Connection conn = ConnectionDB.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
@@ -87,7 +87,7 @@ public class TaiKhoanDao {
 	public TaiKhoan layTaiKhoanTrongDB(String tenDangNhap, String matKhau) {
 		TaiKhoan taiKhoan = null;
 		matKhau = maHoaMD5(matKhau);
-		String sql = "SELECT * FROM `taikhoan` WHERE tenDangNhap= '" + tenDangNhap + "' AND matKhau= '" +matKhau+"'";
+		String sql = "SELECT * FROM taikhoan WHERE tenDangNhap= '" + tenDangNhap + "' AND matKhau= '" +matKhau+"'";
 		try {
 			Connection cons = ConnectionDB.getConnection();
 			PreparedStatement ps = cons.prepareStatement(sql);
