@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
   <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Đăng nhập - Phone Group 02</title>
+    <title>Trang chủ - Phone Group 02</title>
     <script src="js/defer_plus.js" type="text/javascript"></script>
     <script>deferscript('js/polyfill.js', 'polyfill-js', 1)</script>
     <meta name="description" content="">
@@ -40,7 +40,7 @@
 	
 	
 	
-	
+<section class="awe-section-1">
     <div class="container margin-top-15">
         <div class="row top-sliders">
             <div class="col-md-8">
