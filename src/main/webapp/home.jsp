@@ -33,7 +33,127 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
-	<h1>Hello</h1>
+	
+	
+	
+	
+	
+	
+	
+	
+    <div class="container margin-top-15">
+        <div class="row top-sliders">
+            <div class="col-md-8">
+                <div id="sync1" class="owl-carousel owl-theme not-dqowl">
+                    <div class="item">
+                        <a href="#" class="clearfix" title="Ant Green">
+                            <picture>
+                                <source media="(max-width: 767px)"
+                                        srcset="https://bizweb.dktcdn.net/thumb/large/100/348/133/themes/709285/assets/slider_1.jpg?1559638811340">
+                                <img data-src="https://cdn.tgdd.vn/2020/07/banner/Sam-samsung-800-300-800x300-1.png"
+                                     src="https://cdn.tgdd.vn/2020/07/banner/Sam-samsung-800-300-800x300-1.png"
+                                     alt="Ant Green" class="img-responsive center-block"/>
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="clearfix" title="Ant Organic">
+                            <picture>
+                                <source media="(max-width: 767px)"
+                                        srcset="https://bizweb.dktcdn.net/thumb/large/100/348/133/themes/709285/assets/slider_2.jpg?1559638811340">
+                                <img data-src="https://cdn.tgdd.vn/2020/07/banner/reno-combo-800-300-800x300.png"
+                                     src="https://cdn.tgdd.vn/2020/07/banner/reno-combo-800-300-800x300.png"
+                                     alt="Ant Organic" class="img-responsive center-block"/>
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="clearfix" title="Ant Organic">
+                            <picture>
+                                <source media="(max-width: 767px)"
+                                        srcset="https://bizweb.dktcdn.net/thumb/large/100/348/133/themes/709285/assets/slider_3.jpg?1559638811340">
+                                <img data-src="https://cdn.tgdd.vn/2020/07/banner/800-300-800x300-10.png"
+                                     src="https://cdn.tgdd.vn/2020/07/banner/800-300-800x300-10.png"
+                                     alt="Ant Organic" class="img-responsive center-block"/>
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="clearfix" title="Ant Organic">
+                            <picture>
+                                <source media="(max-width: 767px)"
+                                        srcset="https://bizweb.dktcdn.net/thumb/large/100/348/133/themes/709285/assets/slider_4.jpg?1559638811340">
+                                <img data-src="https://cdn.tgdd.vn/2020/07/banner/800-300-800x300-8.png"
+                                     src="https://cdn.tgdd.vn/2020/07/banner/800-300-800x300-8.png"
+                                     alt="Ant Organic" class="img-responsive center-block"/>
+                            </picture>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="clearfix" title="Ant Organic">
+                            <picture>
+                                <source media="(max-width: 767px)"
+                                        srcset="https://bizweb.dktcdn.net/thumb/large/100/348/133/themes/709285/assets/slider_5.jpg?1559638811340">
+                                <img data-src="https://cdn.tgdd.vn/2020/07/banner/800-300-800x300-1.png"
+                                     src="https://cdn.tgdd.vn/2020/07/banner/800-300-800x300-1.png"
+                                     alt="Ant Organic" class="img-responsive center-block"/>
+                            </picture>
+                        </a>
+                    </div>
+                </div>
+                <div id="sync2" class="owl-carousel owl-theme not-dqowl hidden-xs">
+                    <div class="item">Sắm Samsung Galaxy<br>Ưu Đãi Đến 20%</div>
+                    <div class="item">Sắm Ngay iPhone<br>Giảm Đến 5 Triệu</div>
+                    <div class="item">Vivo V19 | V19 Neo<br>Giảm Đến 400 Ngàn</div>
+                    <div class="item">Sắm realme C3<br>Giảm Ngay 100.000đ</div>
+                    <div class="item">Loa, Tai Nghe Bluetooth<br>Tặng Ngay Điện Thoại</div>
+                </div>
+            </div>
+            <div class="col-md-4 homenews hidden-sm hidden-xs">
+                <figure>
+                    <h2><a href="tin-tuc">Tin công nghệ</a></h2>
+                </figure>
+                <ul>
+
+                    <li class="clearfix">
+                        <a href="" title="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt"></a>
+                        <img width="100" height="70" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
+                        <h3>Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt</h3>
+                        <span>26/Tháng Hai/2019</span>
+                    </li>
+                    <li class="clearfix">
+                        <a href="" title="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt"></a>
+                        <img width="100" height="70" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
+                        <h3>Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt</h3>
+                        <span>26/Tháng Hai/2019</span>
+                    </li>
+                    <li class="clearfix">
+                        <a href="" title="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt"></a>
+                        <img width="100" height="70" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-lazyload="https://cdn.tgdd.vn/Files/2020/07/18/1271737/redmi9a-01-_2048x1150-100x100.jpg" alt="Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt" />
+                        <h3>Đánh giá chi tiết Xiaomi Redmi 9A: Chiến được Liên Quân 60 FPS, camera đơn cho màu ảnh đẹp mắt</h3>
+                        <span>26/Tháng Hai/2019</span>
+                    </li>
+
+                </ul>
+                <div class="twobanner">
+                    <a href="#" title="Ant Mobile">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-lazyload="https://cdn.tgdd.vn/2020/07/banner/A21s-398-110-398x110.png" alt="A series" class="img-responsive center-block" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+	
+	
+	
+	
+	
+	
+	
+	
+	
 <footer class="footer ">
     <div class="site-footer">
         <div class="container">
