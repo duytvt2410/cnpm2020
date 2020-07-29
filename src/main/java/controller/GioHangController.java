@@ -13,7 +13,11 @@ import java.io.IOException;
 
 @WebServlet("/CartController")
 public class GioHangController extends HttpServlet {
-    private String type =null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String type =null;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);

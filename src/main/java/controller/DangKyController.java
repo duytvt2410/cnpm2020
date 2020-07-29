@@ -17,7 +17,11 @@ import java.util.Date;
 
 @WebServlet("/dangky")
 public class DangKyController extends HttpServlet {
-    TaiKhoan taiKhoan = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	TaiKhoan taiKhoan = null;
     TaiKhoanDao taiKhoanDao = new TaiKhoanDao();
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
