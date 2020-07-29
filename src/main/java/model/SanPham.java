@@ -25,7 +25,7 @@ public class SanPham {
 
     public static SanPham find(int id){
         try{
-            PreparedStatement ps = ConnectionDB.getPreparedStatement("SELECT id , `name`,price,img FROM sanpham WHERE id=? AND active=1");
+            PreparedStatement ps = ConnectionDB.getPreparedStatement("SELECT id , name,price,img FROM sanpham WHERE id=? AND active=1");
             ps.setInt(1,id);
             ResultSet rs =ps.executeQuery();
             if (rs.next()){
