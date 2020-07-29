@@ -22,7 +22,7 @@ public class TrangChuController extends HttpServlet {
 //   gia soc cuoi tuan
 			String sql3 = "SELECT id, img, price, pricea, des, name FROM sanpham WHERE type =2";
 			PreparedStatement a2 = ConnectionDB.getPreparedStatement(sql3);
-			ResultSet b2 = a2.executeQuery(sql3);
+			ResultSet b2 = a2.executeQuery();
 			request.setAttribute("b2", b2);
 
 
