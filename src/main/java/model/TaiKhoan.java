@@ -1,7 +1,16 @@
 package model;
 
 public class TaiKhoan {
-    String maTaiKhoan;
+	String hoVaTen;
+    public String getHoVaTen() {
+		return hoVaTen;
+	}
+
+	public void setHoVaTen(String hoVaTen) {
+		this.hoVaTen = hoVaTen;
+	}
+
+	String maTaiKhoan;
     String tenDangNhap;
     String email;
     String matKhau;
