@@ -69,6 +69,8 @@
 		re_password = (String) request.getAttribute("repass");
 	}
 
+	String yeuCauXacThuc = (String) request.getAttribute("yeuCauXacThuc");
+
 %>
 <jsp:include page="header.jsp"/>
 <script src="js/jquery.min.js" type="text/javascript"></script>
@@ -84,6 +86,7 @@
 	</div>
 
 	<div class="form-login-regeter">
+        <% if(yeuCauXacThuc == null) {%>
 		<%--Use case: Đăng ký.
 		B2.1: Hệ thống hiển thị form để người dùng nhập thông tin cần thiết
 		(tên đăng nhập, email, mật khẩu, nhập lại mật khẩu).--%>
@@ -103,6 +106,12 @@
 			</div>
 
 			<div class=" login-geterform">
+				<label><b>Họ và tên</b>
+					<p style="color: red"><%=name_error%>
+					</p></label>
+				<input class=" login-geter1" type="text" placeholder="Nhập họ tên" name="fullname"
+					   required>
+
 				<label><b>Tên đăng nhập</b>
 					<p style="color: red"><%=name_error%>
 					</p></label>
@@ -125,24 +134,22 @@
 					</p></label>
 				<input class=" login-geter1" type="password" placeholder="Nhập lại mật khẩu" name="pwd1" required>
 
-				<label>
-					<input type="checkbox" checked="checked" name="remember"> Nhớ mật khẩu
-				</label>
-
 				<button class="login-buton" type="submit">Đăng kí</button>
-				<!--                <button class="login-buton" type="submit"><a href="sign.html" style="color: #fefefe">Đăng nhập</a></button>-->
 
 
                 <div class="container-loginadd">
                     <a class="cancelbtn" href="<%=Utils.fullPath("dangnhap")%>">Đăng nhập</a>
-                    <span class="adpsw">Quên <a href="forgotpass.html">Mật khẩu?</a></span>
-
 				</div>
 
 			</div>
 
 
 		</form>
+        <%} else {%>
+        <div class="alert alert-info">
+            <h5><%=yeuCauXacThuc%></h5>
+        </div>
+        <% }%>
 	</div>
 	<div class="right-login">
 		<div class="img-left-login">
