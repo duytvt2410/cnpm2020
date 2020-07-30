@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import org.apache.commons.mail.Email;
+
 public class ConnectionDB {
 	static Connection con;
 
@@ -41,6 +43,4 @@ public class ConnectionDB {
 
 	}
 
-	public static void main(String[] args) throws Exception {
-	}
 }

@@ -2,6 +2,9 @@ package controller;
 
 import dao.TaiKhoanDao;
 import model.TaiKhoan;
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.HtmlEmail;
+import utils.SystemContain;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,12 +20,9 @@ import java.util.Date;
 
 @WebServlet("/dangky")
 public class DangKyController extends HttpServlet {
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	TaiKhoan taiKhoan = null;
+    TaiKhoan taiKhoan = null;
     TaiKhoanDao taiKhoanDao = new TaiKhoanDao();
+    String tacVu = null;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Use case: Đăng ký.
@@ -32,8 +32,21 @@ public class DangKyController extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Use case: Đăng ký.
+        // B3: Hệ thống lấy thông tin người dùng vừa nhập,
         taiKhoan = layThongTinDangKy(request);
-        kiemTraThongTinDangKy(taiKhoan, request, response);
+        // B4: Hệ thống kiểm tra thông tin đăng ký
+        boolean ketQuaKiemTra =  kiemTraThongTinDangKy(taiKhoan, request, response);
+        if(ketQuaKiemTra == false) {
+        /* B4.1. Nếu kiểm tra thông tin đăng ký là sai: hiển thị các thông báo sai tương ứng ở form
+            (các trường rỗng, email sai định dạng, mật khẩu không đủ mạnh, mật khẩu nhập lại chưa đúng).*/
+        } else {
+            // B4.2. Gửi Email để người dùng xác thực
+            guiMailXacThuc(taiKhoan);
+            request.setAttribute("yeuCauXacThuc", "Bạn vui lòng đăng nhập vào Email đăng ký để xác thực đăng ký tài khoản");
+
+        }
+        traVeTrangDangKy(request, response);
     }
 
     //    Phương thức trả về trang đăng ký:
@@ -42,8 +55,7 @@ public class DangKyController extends HttpServlet {
         rd.forward(request, response);
     }
 
-        //Use case: Đăng ký.
-        // B3: Hệ thống lấy thông tin người dùng vừa nhập,
+
         //kiểm tra xem tài khoản đã tồn tại hay chưa, kiểm tra thông tin mà người dùng nhập có đúng định dạng hay không.
         //Có 2 trường hợp:
     private TaiKhoan layThongTinDangKy(HttpServletRequest request) {
@@ -54,7 +66,7 @@ public class DangKyController extends HttpServlet {
         return tk;
     }
 
-    private void kiemTraThongTinDangKy(TaiKhoan taiKhoan, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private boolean kiemTraThongTinDangKy(TaiKhoan taiKhoan, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = taiKhoan.getTenDangNhap();
         String email = taiKhoan.getEmail();
         String password = taiKhoan.getMatKhau();
@@ -66,9 +78,7 @@ public class DangKyController extends HttpServlet {
         String password_error = "";
         String repass_error = "";
 
-        //Use case: Đăng ký.
-        // B3.1. Nếu kiểm tra thông tin đăng ký là sai: hiển thị các thông báo sai tương ứng ở form
-        //(các trường rỗng, email sai định dạng, mật khẩu không đủ mạnh, mật khẩu nhập lại chưa đúng).
+
         if (name.equals("")) {
             name_error = "✖ Vui lòng nhập tên!";
         } else if (taiKhoanDao.kiemTraTaiKhoan(name) == true) {
@@ -108,26 +118,69 @@ public class DangKyController extends HttpServlet {
         request.setAttribute("email", email);
         request.setAttribute("password", password);
         request.setAttribute("repass", re_password);
-        String url = "/register.jsp";
 
-        try {
-            //Use case: Đăng ký.
-            //B3.2. Nếu kiểm tra thông tin đăng ký là đúng: lưu thông tin đăng ký của người dùng
-            //vào database, chuyển đến trang đăng nhập.
-            if (name_error.length() == 0 && email_error.length() == 0 && password_error.length() == 0 && repass_error.length() == 0) {
-                Date id = new Date();
-                taiKhoan = new TaiKhoan("" + id.getTime(), name, email, taiKhoanDao.maHoaMD5(password), 2, 1);
-                taiKhoanDao.themTaiKhoan(taiKhoan);
-                url = "/sign.jsp";
-            } else {
-                url = "/register.jsp";
-            }
-            RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
-            rd.forward(request, response);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (name_error.length() == 0 && email_error.length() == 0 && password_error.length() == 0 && repass_error.length() == 0) {
+            return true;
+        } else {
+            return false;
         }
 
     }
+
+//     try {
+//        //Use case: Đăng ký.
+//        //B3.2. Nếu kiểm tra thông tin đăng ký là đúng: lưu thông tin đăng ký của người dùng
+//        //vào database, chuyển đến trang đăng nhập.
+//        if (name_error.length() == 0 && email_error.length() == 0 && password_error.length() == 0 && repass_error.length() == 0) {
+//            Date id = new Date();
+//            taiKhoan = new TaiKhoan("" + id.getTime(), name, email, taiKhoanDao.maHoaMD5(password), 2, 1);
+//            taiKhoanDao.themTaiKhoan(taiKhoan);
+//            url = "/sign.jsp";
+//        } else {
+//            url = "/register.jsp";
+//        }
+//        RequestDispatcher rd = getServletContext().getRequestDispatcher(url);
+//        rd.forward(request, response);
+//    } catch (Exception ex) {
+//        ex.printStackTrace();
+//    }
+
+    private static void guiMailXacThuc(TaiKhoan taiKhoan) {
+
+        try {
+            // Tạo đối tượng Email
+            HtmlEmail email = new HtmlEmail();
+
+
+            // Cấu hình
+            email.setHostName("smtp.googlemail.com");
+            email.setSmtpPort(465);
+            email.setAuthenticator(new DefaultAuthenticator(SystemContain.MY_EMAIL, SystemContain.MY_PASSWORD));
+            email.setSSLOnConnect(true);
+            email.setFrom(SystemContain.MY_EMAIL, "CNPM");
+
+
+            // Người nhận
+            email.addTo(SystemContain.FRIEND_EMAIL);
+
+            // Tiêu đề
+            email.setSubject("YÊU CẦU XÁC THỰC EMAIL");
+
+            // Sét nội dung email định dạng HTML.
+            email.setHtmlMsg("<html><h4>Bạn vui lòng click vào link sau để xác thực đăng ký tài khoản</h4> <a href='http://localhost:8080/CNPMFinal/dangnhap'>link</a>");
+
+            // Thiết lập các thông báo thay thế
+            // (Trong trường hợp chương trình đọc mail của người nhận ko hỗ trợ đọc HTML Email)
+            email.setTextMsg("Your email client does not support HTML messages");
+
+            // Gửi email
+            email.send();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }
