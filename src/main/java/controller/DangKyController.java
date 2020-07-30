@@ -34,6 +34,7 @@ public class DangKyController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		tacVu = request.getParameter("tacVu");
 		if (tacVu != null && tacVu.equals("xacThucMail")) {
 			// Use case: Đăng ký.
 			// B3: Hệ thống lấy thông tin người dùng vừa nhập,
@@ -59,8 +60,9 @@ public class DangKyController extends HttpServlet {
 	        //Use case: Đăng ký.
 	        //B3.2. Nếu kiểm tra thông tin đăng ký là đúng: lưu thông tin đăng ký của người dùng
 	        //vào database, chuyển đến trang đăng nhập.
-	        
-	        taiKhoanDao.themTaiKhoan(taiKhoan);
+		    	 Date id = new Date();
+	            taiKhoan = new TaiKhoan("" + id.getTime(), taiKhoan.getTenDangNhap(), taiKhoan.getEmail(), taiKhoanDao.maHoaMD5(taiKhoan.getMatKhau()), 2, 1);
+	            taiKhoanDao.themTaiKhoan(taiKhoan);
 	        response.sendRedirect(request.getContextPath() +"dangnhap");
 	    } catch (Exception ex) {
 	        ex.printStackTrace();
