@@ -28,9 +28,11 @@ public class Chitietsanpham extends HttpServlet {
 
 
             String sql1 = "SELECT id, des,name,img, price, pricea, tinhtrang, dungluong, dungluonga, mausac, mausaca, manhinh, hedieuhanh, cameratruoc, camerasau, cpu, ram, bonhotrong, thesim, dungluongpin, mota, tinhnang, noidung, imgdemo, noidunga, imgdemoa, noidungb, imgdemob FROM sanpham WHERE active=1 ";
-            PreparedStatement s1 = ConnectionDB.getPreparedStatement(sql1);
+            
 
             if (type != null) sql1 += " and id=" + type;
+            
+            PreparedStatement s1 = ConnectionDB.getPreparedStatement(sql1);
             ResultSet p = s1.executeQuery();
             request.setAttribute("p", p);
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/chitietsanpham.jsp");
