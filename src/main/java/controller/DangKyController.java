@@ -182,11 +182,11 @@ public class DangKyController extends HttpServlet {
 
 			// Sét nội dung email định dạng HTML.
 			StringBuffer content = new StringBuffer();
-			content.append("<html><h4>Ban vui long click vao link sau đe xac thuc dang ky tai khoan</h4>");
+			content.append("<html><h4>Ban vui long click vao link sau de xac thuc dang ky tai khoan</h4>");
 			String linkThemTK = Utils.fullPath("dangky?tacVu=themTaiKhoan&&fullname=" + taiKhoan.getHoVaTen()
-					+ "&&uname=" + taiKhoan.getTenDangNhap() + "&&uemail=" + taiKhoan.getEmail() + "pwd="
+					+ "&&uname=" + taiKhoan.getTenDangNhap() + "&&uemail=" + taiKhoan.getEmail() + "&&pwd="
 					+ taiKhoan.getMatKhau());
-			content.append("<a href='" + linkThemTK + "'>Click vào đây</a>");
+			content.append("<a href='" + linkThemTK + "'>Click vao day</a>");
 			email.setHtmlMsg(content.toString());
 
 			// Thiết lập các thông báo thay thế
