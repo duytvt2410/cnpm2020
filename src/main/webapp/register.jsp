@@ -133,7 +133,7 @@
 					<p style="color: red"><%=repass_error%>
 					</p></label>
 				<input class=" login-geter1" type="password" placeholder="Nhập lại mật khẩu" name="pwd1" required>
-
+				<input type="hidden" value="xacThucMail" name="tacVu">
 				<button class="login-buton" type="submit">Đăng kí</button>
 
 
