@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,9 +28,30 @@ public class DangKyController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Use case: Đăng ký.
-		// B2. Hệ thống gọi phương thức trả về trang đăng ký.
-		traVeTrangDangKy(request, response);
+
+		tacVu = request.getParameter("tacVu");
+		if (tacVu != null && tacVu.equals("themTaiKhoan")) {
+			taiKhoan = layThongTinDangKy(request);
+			// Use case: Đăng ký.
+			// B3.2. Nếu kiểm tra thông tin đăng ký là đúng: lưu thông tin đăng ký của người
+			// dùng
+			// vào database, chuyển đến trang đăng nhập.
+
+			try {
+				Date id = new Date();
+				taiKhoan = new TaiKhoan("" + id.getTime(), taiKhoan.getTenDangNhap(), taiKhoan.getEmail(),
+						taiKhoanDao.maHoaMD5(taiKhoan.getMatKhau()), 2, 1);
+				taiKhoanDao.themTaiKhoan(taiKhoan);
+			} catch (URISyntaxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			response.sendRedirect(request.getContextPath() + "dangnhap");
+		} else {
+			// Use case: Đăng ký.
+			// B2. Hệ thống gọi phương thức trả về trang đăng ký.
+			traVeTrangDangKy(request, response);
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -54,21 +76,8 @@ public class DangKyController extends HttpServlet {
 
 			}
 			traVeTrangDangKy(request, response);
-		} else if (tacVu != null && tacVu.equals("themTaiKhoan")) {
-			taiKhoan = layThongTinDangKy(request);
-		     try {
-	        //Use case: Đăng ký.
-	        //B3.2. Nếu kiểm tra thông tin đăng ký là đúng: lưu thông tin đăng ký của người dùng
-	        //vào database, chuyển đến trang đăng nhập.
-		    	 Date id = new Date();
-	            taiKhoan = new TaiKhoan("" + id.getTime(), taiKhoan.getTenDangNhap(), taiKhoan.getEmail(), taiKhoanDao.maHoaMD5(taiKhoan.getMatKhau()), 2, 1);
-	            taiKhoanDao.themTaiKhoan(taiKhoan);
-	        response.sendRedirect(request.getContextPath() +"dangnhap");
-	    } catch (Exception ex) {
-	        ex.printStackTrace();
-	    }
 		}
-		
+
 	}
 
 	// Phương thức trả về trang đăng ký:
@@ -151,8 +160,6 @@ public class DangKyController extends HttpServlet {
 		}
 
 	}
-
-
 
 	private static void guiMailXacThuc(TaiKhoan taiKhoan) {
 
