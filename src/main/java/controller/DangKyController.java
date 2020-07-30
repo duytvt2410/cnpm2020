@@ -161,7 +161,7 @@ public class DangKyController extends HttpServlet {
 
 
             // Người nhận
-            email.addTo(SystemContain.FRIEND_EMAIL);
+            email.addTo(taiKhoan.getEmail());
 
             // Tiêu đề
             email.setSubject("YÊU CẦU XÁC THỰC EMAIL");
