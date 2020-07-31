@@ -96,8 +96,9 @@ public class TaiKhoanDao {
 			while (rs.next()) {
 				taiKhoan = new TaiKhoan();
 				taiKhoan.setMaTaiKhoan(rs.getString(1));
-				taiKhoan.setTenDangNhap(rs.getString(2));
-				taiKhoan.setEmail(rs.getString(3));
+				taiKhoan.setHoVaTen(rs.getString(2));
+				taiKhoan.setTenDangNhap(rs.getString(3));
+				taiKhoan.setEmail(rs.getString(4));
 			}
 			cons.close();
 		} catch (ClassNotFoundException | SQLException ex) {
