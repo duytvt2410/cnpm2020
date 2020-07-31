@@ -39,7 +39,7 @@ public class DangKyController extends HttpServlet {
 
 			try {
 				Date id = new Date();
-				taiKhoan = new TaiKhoan("" + id.getTime(), taiKhoan.getTenDangNhap(), taiKhoan.getEmail(),
+				taiKhoan = new TaiKhoan("" + id.getTime(),taiKhoan.getHoVaTen(), taiKhoan.getTenDangNhap(), taiKhoan.getEmail(),
 						taiKhoanDao.maHoaMD5(taiKhoan.getMatKhau()), 2, 1);
 				taiKhoanDao.themTaiKhoan(taiKhoan);
 			} catch (URISyntaxException e) {

@@ -23,7 +23,7 @@
                             <a href="<%=Utils.fullPath("trangchu")%>">
                                 <i class="fas fa-user-circle fa-2x"></i>
                                 <% if (taiKhoan != null) {%>
-                                <div class="account">Xin chào, <%=taiKhoan.getTenDangNhap()%> <i
+                                <div class="account">Xin chào, <%=taiKhoan.getHoVaTen()%> <i
                                         class="fa fa-angle-down"
                                         data-toggle="dropdown"></i></div>
                                 <% } else { %>

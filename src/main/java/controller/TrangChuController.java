@@ -46,7 +46,7 @@ public class TrangChuController extends HttpServlet {
 
 		request.getRequestDispatcher("trangchu.jsp").forward(request,response);
 
-	} catch (ClassNotFoundException | SQLException | URISyntaxException e) {
+	} catch (ClassNotFoundException | SQLException  e) {
 		e.printStackTrace();
 	}
     }

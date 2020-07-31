@@ -38,7 +38,7 @@ public class Chitietsanpham extends HttpServlet {
             RequestDispatcher rd = getServletContext().getRequestDispatcher("/chitietsanpham.jsp");
             rd.forward(request, response);
 
-        } catch (ClassNotFoundException | SQLException | URISyntaxException e) {
+        } catch (ClassNotFoundException | SQLException  e) {
             e.printStackTrace();
         }
     }

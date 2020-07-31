@@ -66,16 +66,17 @@ public class TaiKhoanDao {
 
     //Them tai khoan vao trong database:
     public void themTaiKhoan(TaiKhoan taiKhoan) throws URISyntaxException {
-        String sql = "INSERT INTO taikhoan VALUES (?,?,?,?,?,?)";
+        String sql = "INSERT INTO taikhoan VALUES (?,?,?,?,?,?,?)";
         try {
             Connection conn = ConnectionDB.getConnection();
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, taiKhoan.getMaTaiKhoan());
-            pst.setString(2, taiKhoan.getTenDangNhap());
-            pst.setString(3, taiKhoan.getEmail());
-            pst.setString(4, taiKhoan.getMatKhau());
-            pst.setInt(5, taiKhoan.getQuyenTruyCap());
-            pst.setInt(6, taiKhoan.getTrangThai());
+            pst.setString(2, taiKhoan.getHoVaTen());
+            pst.setString(3, taiKhoan.getTenDangNhap());
+            pst.setString(4, taiKhoan.getEmail());
+            pst.setString(5, taiKhoan.getMatKhau());
+            pst.setInt(6, taiKhoan.getQuyenTruyCap());
+            pst.setInt(7, taiKhoan.getTrangThai());
             pst.executeUpdate();
             conn.close();
         } catch (SQLException e) {
@@ -104,4 +105,21 @@ public class TaiKhoanDao {
 		}
 		return taiKhoan;
 	}
+	
+	 //Kiem tra tai khoan nay da ton tai id Facebook chua:
+    public boolean kiemTraTaiKhoanTheoId(String id) {
+        String sql = "SELECT * FROM taikhoan WHERE maTaiKhoan= '" + id + "'";
+        try {
+            Connection cons = ConnectionDB.getConnection();
+            PreparedStatement ps = cons.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                return true;
+            }
+            cons.close();
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(TaiKhoanDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }

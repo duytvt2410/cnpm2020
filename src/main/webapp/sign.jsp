@@ -81,16 +81,16 @@
 
         <label ><b>Mật khẩu</b></label>
         <input class=" login-geter1" type="password" placeholder="Nhập mậu khẩu" name="pwd" required>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Nhớ mật khẩu
-        </label>
+      
 
         <%-- Use case: Đăng nhập
             B3: Người dùng nhập thông tin đăng nhập vào form và nhấn Enter hoặc chọn nút Đăng nhập
         --%>
-        <button class="login-buton" type="submit"><a style="color: #fefefe">Đăng nhập</a></button>
-
-
+        <button class="login-buton" type="submit" style="background: #FDDE54 !important"><span style="color: #6E6D6A">Đăng nhập</span></button>
+        
+        <button class="login-buton" type="button" style="background: #2851A3 !important"><a href="https://www.facebook.com/dialog/oauth?client_id=608201396794677&redirect_uri=https://cnpm2020.herokuapp.com/dangnhapbangFB"><i class="fab fa-facebook-square" style="font-size: 20px"></i><span style="color: #fefefe"> Đăng nhập bằng Facebook</span></a></button>
+		
+		<button class="login-buton" type="submit" style="background: #EA4335 !important"><i class="fab fa-google" style="font-size: 20px"></i><span style="color: #fefefe"> Đăng nhập bằng Google</span></button>
         <div class="container-loginadd" >
             <a class="cancelbtn"  href="<%=Utils.fullPath("dangky")%>" >Đăng kí</a> &emsp;
             <span class="adpsw">Quên <a href="#">Mật khẩu?</a></span>
