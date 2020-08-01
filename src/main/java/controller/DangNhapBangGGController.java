@@ -36,7 +36,7 @@ public class DangNhapBangGGController extends HttpServlet {
 
 	public static String GOOGLE_CLIENT_ID = "762420684607-446oiurdkq6ns7pugjdf226emlm0in7t.apps.googleusercontent.com";
 	public static String GOOGLE_CLIENT_SECRET = "6f1F8SoxmfxUzN4Ij5ALKETx";
-	public static String GOOGLE_REDIRECT_URI = "http://localhost:8080/dangnhapbangGG";
+	public static String GOOGLE_REDIRECT_URI = "https://cnpm2020.herokuapp.com/dangnhapbangGG";
 	public static String GOOGLE_LINK_GET_TOKEN = "https://accounts.google.com/o/oauth2/token";
 	public static String GOOGLE_LINK_GET_USER_INFO = "https://www.googleapis.com/oauth2/v1/userinfo?access_token=";
 	public static String GOOGLE_GRANT_TYPE = "authorization_code";
