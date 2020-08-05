@@ -86,16 +86,16 @@
         </label>
 
         <%-- Use case: Đăng nhập
-        	B3: Có 3 lựa chọn
+        	B3: Người dùng sẽ chọn hình thức đăng nhập.
             B3.1: Người dùng nhập thông tin đăng nhập vào form và nhấn Enter hoặc chọn nút Đăng nhập
         --%>
         <button class="login-buton" type="submit" style="background: #FDDE54 !important"><span style="color: #6E6D6A">Đăng nhập</span></button>
         <%-- 
-            B3.2: Người dùng nhấn nút Đăng nhập bằng Facebook
+            B3.2: Người dùng chọn nút Đăng nhập bằng Facebook
         --%>
         <button class="login-buton" type="button" style="background: #2851A3 !important" onclick="window.location.href='https://www.facebook.com/dialog/oauth?client_id=608201396794677&redirect_uri=https://cnpm2020.herokuapp.com/dangnhapbangFB';"><i class="fab fa-facebook-square" style="font-size: 20px"></i><span style="color: #fefefe"> Đăng nhập bằng Facebook</span></button>
 		 <%-- 
-            B3.2: Người dùng nhấn nút Đăng nhập bằng Google
+            B3.2: Người dùng chọn nút Đăng nhập bằng Google
         --%>
 		<button class="login-buton" type="submit" style="background: #EA4335 !important" onclick="window.location.href='https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=https://cnpm2020.herokuapp.com/dangnhapbangGG&response_type=code&client_id=762420684607-446oiurdkq6ns7pugjdf226emlm0in7t.apps.googleusercontent.com&approval_prompt=force';"><i class="fab fa-google" style="font-size: 20px"></i><span style="color: #fefefe"> Đăng nhập bằng Google</span></button>
         <div class="container-loginadd" >

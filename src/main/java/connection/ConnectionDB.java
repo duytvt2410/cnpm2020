@@ -15,9 +15,9 @@ public class ConnectionDB {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		if (con == null || con.isClosed()) {
 			Class.forName("org.postgresql.Driver");
-			String username = "knzaihosxxkwov";
-			String password = "86dc869c0bb38be1274780cdfa84cb3f46252ecc0b62112ad31808620c8ca811";
-			String dbUrl = "jdbc:postgresql://"+"ec2-54-197-254-117.compute-1.amazonaws.com:5432"+"/dddovfb35cnuba";
+			String username = "hwjyatmanxmgus";
+			String password = "37758779b22c5ec25382de80cb6b3a3ef612d0c610bc418c11862d5ae3931034";
+			String dbUrl = "jdbc:postgresql://"+"ec2-107-20-104-234.compute-1.amazonaws.com:5432"+"/d6sealtljb2s52";
 			
 			con = DriverManager.getConnection(dbUrl, username, password);
 			return con;
@@ -31,9 +31,9 @@ public class ConnectionDB {
 			throws ClassNotFoundException, SQLException {
 		if (con == null || con.isClosed()) {
 			Class.forName("org.postgresql.Driver");
-			String username = "knzaihosxxkwov";
-			String password = "86dc869c0bb38be1274780cdfa84cb3f46252ecc0b62112ad31808620c8ca811";
-			String dbUrl = "jdbc:postgresql://"+"ec2-54-197-254-117.compute-1.amazonaws.com:5432"+"/dddovfb35cnuba";
+			String username = "hwjyatmanxmgus";
+			String password = "37758779b22c5ec25382de80cb6b3a3ef612d0c610bc418c11862d5ae3931034";
+			String dbUrl = "jdbc:postgresql://"+"ec2-107-20-104-234.compute-1.amazonaws.com:5432"+"/d6sealtljb2s52";
 			
 			con = DriverManager.getConnection(dbUrl, username, password);
 			return con.prepareStatement(sql);

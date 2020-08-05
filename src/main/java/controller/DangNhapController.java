@@ -42,7 +42,7 @@ public class DangNhapController extends HttpServlet {
         if(taiKhoan == null) {
             traVeThongBao("Tên đăng nhập hoặc mật khẩu không đúng", request, response);
         }
-        // --Nếu đúng thì sẽ hiển thị thông tin đăng nhập và duy trì trạng thái đăng nhập
+        // --Nếu đúng thì Hệ thống sẽ trả về trang chủ, hiển thị thông tin đăng nhập và duy trì trạng thái đăng nhập
         if(taiKhoan != null) {
             HttpSession session = request.getSession();
             session.setAttribute("Auth", taiKhoan);

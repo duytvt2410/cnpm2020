@@ -42,17 +42,17 @@ public class DangNhapBangFBController extends HttpServlet {
 		
 		
 		//3.2.1: Hệ thống lấy mã code từ Facebook gửi về
-		String code = request.getParameter("code");
+		String code = layCode(request);
 		if (code == null || code.isEmpty()) {
 			response.sendRedirect(request.getContextPath()+"/dangnhap");
 		} else {
-			//3.2.2: Hệ thống lấy  chuỗi mãtoken từ code của Faceook
+			//3.2.2: Hệ thống lấy  chuỗi mã token từ code của Facebook
 			String accessToken = layToken(code);
 			
 			//3.2.3: Hệ thống lấy thông tin người dừng từ chuỗi token
 			taiKhoan = layThongTinNguoiDung(accessToken);
 			
-			//3.2.4: Hệ thống kiểm tra mã Id của tài khoản người dùng
+			//3.2.4: Hệ thống kiểm tra mã Id của tài khoản người dùng đã tồn tại trong Dữ liệu của hệ thống chưa.
 			//-- Nếu chưa có thì thêm vào database
 			if(taiKhoanDao.kiemTraTaiKhoanTheoId(taiKhoan.getMaTaiKhoan()) == false) {
 				try {
@@ -62,7 +62,7 @@ public class DangNhapBangFBController extends HttpServlet {
 				}
 			}
 			
-			//3.2.5: Hệ thống duy trì trạng thái đăng nhập 
+			//3.2.5: Hệ thống trả về trang chủ và duy trì trạng thái đăng nhập 
 			HttpSession session = request.getSession();
             session.setAttribute("Auth", taiKhoan);
             response.sendRedirect(request.getContextPath()+"/trangchu");
@@ -74,9 +74,13 @@ public class DangNhapBangFBController extends HttpServlet {
 			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 	
-	private static String layToken(final String code) throws ClientProtocolException, IOException {
+	private String layCode(HttpServletRequest request) throws ClientProtocolException, IOException {
+		String code = request.getParameter("code");
+	    return code;
+	  }
+	
+	private String layToken(final String code) throws ClientProtocolException, IOException {
 	    String link = String.format(FACEBOOK_LINK_GET_TOKEN, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, FACEBOOK_REDIRECT_URL, code);
 	    String response = Request.Get(link).execute().returnContent().asString();
 	    JsonObject jobj = new Gson().fromJson(response, JsonObject.class);
@@ -84,7 +88,7 @@ public class DangNhapBangFBController extends HttpServlet {
 	    return accessToken;
 	  }
 	  
-	private static TaiKhoan layThongTinNguoiDung(String maToken) {
+	private TaiKhoan layThongTinNguoiDung(String maToken) {
 		
 	    FacebookClient facebookClient = new DefaultFacebookClient(maToken, FACEBOOK_APP_SECRET, Version.LATEST);
 	    User user = facebookClient.fetchObject("me", User.class);

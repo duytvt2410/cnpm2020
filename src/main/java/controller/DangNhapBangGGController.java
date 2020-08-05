@@ -47,7 +47,7 @@ public class DangNhapBangGGController extends HttpServlet {
 			//3.3.2: Hệ thống lấy  chuỗi mã  token từ code của Google
 			String accessToken = layToken(code);
 			
-			//3.3.3: Hệ thống lấy thông tin người dừng từ chuỗi token
+			//3.3.3: Hệ thống kiểm tra mã Id của tài khoản người dùng đã tồn tại trong Dữ liệu của hệ thống chưa.
 			taiKhoan = layThongTinNguoiDung(accessToken);
 			
 			//3.3.4: Hệ thống kiểm tra mã Id của tài khoản người dùng
@@ -60,7 +60,7 @@ public class DangNhapBangGGController extends HttpServlet {
 				}
 			}
 			
-			//3.3.5: Hệ thống duy trì trạng thái đăng nhập 
+			//3.3.5: Hệ thống trả về trang chủ và duy trì trạng thái đăng nhập
 			HttpSession session = request.getSession();
 			session.setAttribute("Auth", taiKhoan);
 			response.sendRedirect(request.getContextPath() + "/trangchu");
@@ -73,7 +73,7 @@ public class DangNhapBangGGController extends HttpServlet {
 		doGet(request, response);
 	}
 
-	public static String layToken(String code) throws ClientProtocolException, IOException {
+	public String layToken(String code) throws ClientProtocolException, IOException {
 		String response = Request.Post(GOOGLE_LINK_GET_TOKEN)
 				.bodyForm(Form.form().add("client_id", GOOGLE_CLIENT_ID).add("client_secret", GOOGLE_CLIENT_SECRET)
 						.add("redirect_uri", GOOGLE_REDIRECT_URI).add("code", code).add("grant_type", GOOGLE_GRANT_TYPE)
@@ -84,7 +84,7 @@ public class DangNhapBangGGController extends HttpServlet {
 		return accessToken;
 	}
 
-	public static TaiKhoan layThongTinNguoiDung(String maToken) throws ClientProtocolException, IOException {
+	public TaiKhoan layThongTinNguoiDung(String maToken) throws ClientProtocolException, IOException {
 		String link = GOOGLE_LINK_GET_USER_INFO + maToken;
 		String response = Request.Get(link).execute().returnContent().asString();
 		GooglePojo user = new Gson().fromJson(response, GooglePojo.class);
