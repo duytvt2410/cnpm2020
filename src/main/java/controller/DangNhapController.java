@@ -30,13 +30,13 @@ public class DangNhapController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Use case: Đăng nhập.
-        // B4: Hệ thống lấy thông tin người dùng vừa nhập
+        // B3.1.1: Hệ thống lấy thông tin người dùng vừa nhập
         taiKhoan = layThongTinDangNhap(request);
         request.setAttribute("tenDangNhap", taiKhoan.getTenDangNhap());
 
 
         //Use case: Đăng nhập
-        // B5. Hệ thống kiểm tra thông tin đăng nhập có trùng khớp với thông tin đã đăng ký hay không
+        // B3.1.2: Hệ thống kiểm tra thông tin đăng nhập có trùng khớp với thông tin đã đăng ký hay không
         // --Nếu không đúng thì sẽ hiển thị thông báo "Tên đăng nhập hoặc mật khẩu không đúng"
         taiKhoan = kiemTraThongTinDangNhap(taiKhoan);
         if(taiKhoan == null) {
