@@ -42,11 +42,15 @@ public class DangKyController extends HttpServlet {
             // B5. Nếu Người dùng đã click vào link xác nhận
             // Hệ thống sẽ lưu tài khoản vào database, chuyển đến trang đăng nhập.
 
-            Date id = new Date();
-            taiKhoan = new TaiKhoan("" + id.getTime(),taiKhoan.getHoVaTen(), taiKhoan.getTenDangNhap(), taiKhoan.getEmail(),
-                    taiKhoanDao.maHoaMD5(taiKhoan.getMatKhau()), 2, 1);
+           
             try {
-				taiKhoanDao.themTaiKhoan(taiKhoan);
+            	if(taiKhoanDao.kiemTraTaiKhoan(taiKhoan.getTenDangNhap()) == false) {
+            		 Date id = new Date();
+                     taiKhoan = new TaiKhoan("" + id.getTime(),taiKhoan.getHoVaTen(), taiKhoan.getTenDangNhap(), taiKhoan.getEmail(),
+                             taiKhoanDao.maHoaMD5(taiKhoan.getMatKhau()), 2, 1);
+            		
+            		taiKhoanDao.themTaiKhoan(taiKhoan);
+            	}
 			} catch (URISyntaxException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -104,6 +108,7 @@ public class DangKyController extends HttpServlet {
 
     private boolean kiemTraThongTinDangKy(TaiKhoan taiKhoan, HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	String fullname = taiKhoan.getHoVaTen();
         String name = taiKhoan.getTenDangNhap();
         String email = taiKhoan.getEmail();
         String password = taiKhoan.getMatKhau();
@@ -111,12 +116,20 @@ public class DangKyController extends HttpServlet {
         String regex_email = "^[A-Za-z0-9]+([_\\.\\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\\.\\-]?[A-Za-z0-9]+)*(\\.[A-Za-z]+)+$";
         String regex_password = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*]).{8,}$";
         String name_error = "";
+        String fullname_error = "";
         String email_error = "";
         String password_error = "";
         String repass_error = "";
 
+        if (fullname.equals("")) {
+        	fullname_error = "✖ Vui lòng nhập họ tên!";
+        }
+        if (fullname_error.length() > 0) {
+            request.setAttribute("hoten_error", fullname_error);
+        }
+        
         if (name.equals("")) {
-            name_error = "✖ Vui lòng nhập tên!";
+            name_error = "✖ Vui lòng nhập tên đăng nhập!";
         } else if (taiKhoanDao.kiemTraTaiKhoan(name) == true) {
             name_error = "✖ Địa chỉ đã được đăng ký";
         }
@@ -150,6 +163,8 @@ public class DangKyController extends HttpServlet {
         if (repass_error.length() > 0) {
             request.setAttribute("repass_err", repass_error);
         }
+        
+        request.setAttribute("fullname", fullname);
         request.setAttribute("name", name);
         request.setAttribute("email", email);
         request.setAttribute("password", password);

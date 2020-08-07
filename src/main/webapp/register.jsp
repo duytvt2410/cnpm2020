@@ -36,10 +36,15 @@
 </head>
 <body>
 <%
+	String fullname_error = "";
 	String name_error = "";
 	String email_error = "";
 	String password_error = "";
 	String repass_error = "";
+	
+	if (request.getAttribute("fullname_error") != null) {
+		fullname_error = (String) request.getAttribute("fullname_error");
+	}
 	if (request.getAttribute("name_error") != null) {
 		name_error = (String) request.getAttribute("name_error");
 	}
@@ -52,10 +57,16 @@
 	if (request.getAttribute("repass_err") != null) {
 		repass_error = (String) request.getAttribute("repass_err");
 	}
+	
+	String fullname = "";
 	String name = "";
 	String email = "";
 	String password = "";
 	String re_password = "";
+	
+	if (request.getAttribute("fullname") != null) {
+		fullname = (String) request.getAttribute("fullname");
+	}
 	if (request.getAttribute("name") != null) {
 		name = (String) request.getAttribute("name");
 	}
@@ -107,9 +118,9 @@
 
 			<div class=" login-geterform">
 				<label><b>Họ và tên</b>
-					<p style="color: red"><%=name_error%>
+					<p style="color: red"><%=fullname_error%>
 					</p></label>
-				<input class=" login-geter1" type="text" placeholder="Nhập họ tên" name="fullname"
+				<input class=" login-geter1" type="text" placeholder="Nhập họ tên" value="<%=fullname%>" name="fullname"
 					   required>
 
 				<label><b>Tên đăng nhập</b>
