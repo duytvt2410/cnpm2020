@@ -43,22 +43,22 @@
                                                 Khách hàng chọn vào nút đăng nhập.
                                                 --%>
                                                 
-                                                <button class="btn btn-warning" onclick="window.location.href='<%=Utils.fullPath("dangnhap")%>';"><i class="fa fa-sign-in-alt"></i> Đăng nhập</button>
-                                                
+                                                <button class="login" onclick="window.location.href='<%=Utils.fullPath("dangnhap")%>';"><i class="fa fa-sign-in-alt"></i> Đăng nhập</button>
+                                               
                                             </li>
                                             <li class="level2">
                                                 <%--Use case: Đăng ký.
                                                 B1.Khách hàng đưa chuột vào icon tài khoản ở góc trên bên trái của giao diện.
                                                 Giao diện sẽ xuất hiện một dropdown menu chứa các nút chức năng: đăng nhập, đăng ký.
                                                 Khách hàng chọn vào nút đăng ký.--%>
-                                                
-                                                 <button class="btn btn-danger" onclick="window.location.href='<%=Utils.fullPath("dangky")%>';"><i class="fa fa-registered"></i> Đăng kí</button>
+                                               
+                                                 <button class="register" onclick="window.location.href='<%=Utils.fullPath("dangky")%>';"><i class="fa fa-registered"></i> Đăng kí</button>
                                                
                                             </li>
                                             <% } else { %>
                                             <li class="level2 padding-top-5">
                                                 
-                                                <button class="btn btn-info" onclick="window.location.href='<%=Utils.fullPath("dangxuat")%>';"><i class="fa fa-sign-out-alt"></i> Đăng xuất</button>
+                                                <button class="logout" onclick="window.location.href='<%=Utils.fullPath("dangxuat")%>';"><i class="fa fa-sign-out-alt"></i> Đăng xuất</button>
                                                 
                                             </li>
                                             <% } %>
