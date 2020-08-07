@@ -20,7 +20,7 @@
                     <ul class="nav register">
                         <li class="nav-item1 has-mega">
                             <% TaiKhoan taiKhoan = (TaiKhoan) session.getAttribute("Auth");%>
-                            <a href="<%=Utils.fullPath("trangchu")%>">
+                            <a href="#">
                                 <i class="fas fa-user-circle fa-2x"></i>
                                 <% if (taiKhoan != null) {%>
                                 <div class="account">Xin chào, <%=taiKhoan.getHoVaTen()%> <i
@@ -42,22 +42,24 @@
                                                 Giao diện sẽ xuất hiện một dropdown menu chứa các nút chức năng: đăng nhập, đăng ký.
                                                 Khách hàng chọn vào nút đăng nhập.
                                                 --%>
-                                                <div class="login"><a href="<%=Utils.fullPath("dangnhap")%>"><i
-                                                        class="fa fa-sign-in-alt"></i> Đăng nhập</a></div>
+                                                <div class="login">
+                                                <button onclick="window.location.href='<%=Utils.fullPath("dangnhap")%>';"><i class="fa fa-sign-in-alt"></i> Đăng nhập</button>
+                                                </div>
                                             </li>
                                             <li class="level2">
                                                 <%--Use case: Đăng ký.
                                                 B1.Khách hàng đưa chuột vào icon tài khoản ở góc trên bên trái của giao diện.
                                                 Giao diện sẽ xuất hiện một dropdown menu chứa các nút chức năng: đăng nhập, đăng ký.
                                                 Khách hàng chọn vào nút đăng ký.--%>
-                                                <div class="register"><a href="<%=Utils.fullPath("dangky")%>"><i
-                                                        class="fa fa-registered"></i> Đăng kí</a></div>
+                                                <div class="register">
+                                                 <button onclick="window.location.href='<%=Utils.fullPath("dangky")%>';"><i class="fa fa-registered"></i> Đăng kí</button>
+                                               </div>
                                             </li>
                                             <% } else { %>
                                             <li class="level2 padding-top-5">
-                                                <div class="logout"><a href="<%=Utils.fullPath("dangxuat")%>"><i
-                                                        class="fa fa-sign-out-alt"></i> Đăng
-                                                    xuất</a></div>
+                                                <div class="logout">
+                                                <button onclick="window.location.href='<%=Utils.fullPath("dangxuat")%>';"><i class="fa fa-sign-out-alt"></i> Đăng xuất</button>
+                                                </div>
                                             </li>
                                             <% } %>
                                         </ul>
