@@ -31,7 +31,7 @@
                                                                   data-toggle="dropdown"></i></div>
                                 <% } %>
                             </a>
-                            <div class="mega-content">
+                            <div class="mega-content" style="top: 50px !important">
                                 <ul class="level0">
                                     <li class="level1 parent item">
                                         <ul class="level1 register-btn">
@@ -42,24 +42,24 @@
                                                 Giao diện sẽ xuất hiện một dropdown menu chứa các nút chức năng: đăng nhập, đăng ký.
                                                 Khách hàng chọn vào nút đăng nhập.
                                                 --%>
-                                                <div class="login">
-                                                <button onclick="window.location.href='<%=Utils.fullPath("dangnhap")%>';"><i class="fa fa-sign-in-alt"></i> Đăng nhập</button>
-                                                </div>
+                                                
+                                                <button class="btn btn-warning" onclick="window.location.href='<%=Utils.fullPath("dangnhap")%>';"><i class="fa fa-sign-in-alt"></i> Đăng nhập</button>
+                                                
                                             </li>
                                             <li class="level2">
                                                 <%--Use case: Đăng ký.
                                                 B1.Khách hàng đưa chuột vào icon tài khoản ở góc trên bên trái của giao diện.
                                                 Giao diện sẽ xuất hiện một dropdown menu chứa các nút chức năng: đăng nhập, đăng ký.
                                                 Khách hàng chọn vào nút đăng ký.--%>
-                                                <div class="register">
-                                                 <button onclick="window.location.href='<%=Utils.fullPath("dangky")%>';"><i class="fa fa-registered"></i> Đăng kí</button>
-                                               </div>
+                                                
+                                                 <button class="btn btn-danger" onclick="window.location.href='<%=Utils.fullPath("dangky")%>';"><i class="fa fa-registered"></i> Đăng kí</button>
+                                               
                                             </li>
                                             <% } else { %>
                                             <li class="level2 padding-top-5">
-                                                <div class="logout">
-                                                <button onclick="window.location.href='<%=Utils.fullPath("dangxuat")%>';"><i class="fa fa-sign-out-alt"></i> Đăng xuất</button>
-                                                </div>
+                                                
+                                                <button class="btn btn-info" onclick="window.location.href='<%=Utils.fullPath("dangxuat")%>';"><i class="fa fa-sign-out-alt"></i> Đăng xuất</button>
+                                                
                                             </li>
                                             <% } %>
                                         </ul>
