@@ -28,6 +28,8 @@ public class DangKyController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	request.setCharacterEncoding("UTF-8");
+    	
         tacVu = request.getParameter("tacVu");
 
 
@@ -61,6 +63,8 @@ public class DangKyController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	request.setCharacterEncoding("UTF-8");
+    	
         tacVu = request.getParameter("tacVu");
         if (tacVu != null && tacVu.equals("xacThucMail")) {
             // Use case: Đăng ký.
