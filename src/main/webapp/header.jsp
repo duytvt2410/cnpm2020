@@ -42,8 +42,8 @@
                                                 Giao diện sẽ xuất hiện một dropdown menu chứa các nút chức năng: đăng nhập, đăng ký.
                                                 Khách hàng chọn vào nút đăng nhập.
                                                 --%>
-                                                <div class="login">
-                                                <button class="login" style="border: none; color: white; padding-right: 10px" onclick="window.location.href='<%=Utils.fullPath("dangnhap")%>';"><i class="fa fa-sign-in-alt"></i> Đăng nhập</button>
+                                                <div class="login" style="padding-right: 10px">
+                                                <button class="login" style="border: none; color: white" onclick="window.location.href='<%=Utils.fullPath("dangnhap")%>';"><i class="fa fa-sign-in-alt"></i> Đăng nhập</button>
                                                 </div>
                                             </li>
                                             <li class="level2">
@@ -51,14 +51,14 @@
                                                 B1.Khách hàng đưa chuột vào icon tài khoản ở góc trên bên trái của giao diện.
                                                 Giao diện sẽ xuất hiện một dropdown menu chứa các nút chức năng: đăng nhập, đăng ký.
                                                 Khách hàng chọn vào nút đăng ký.--%>
-                                                <div class="register">
-                                                 <button class="register" style="border: none; color: white; padding-right: 10px" onclick="window.location.href='<%=Utils.fullPath("dangky")%>';"><i class="fa fa-registered"></i> Đăng kí</button>
+                                                <div class="register" style="padding-right: 10px">
+                                                 <button class="register" style="border: none; color: white" onclick="window.location.href='<%=Utils.fullPath("dangky")%>';"><i class="fa fa-registered"></i> Đăng kí</button>
                                                </div>
                                             </li>
                                             <% } else { %>
                                             <li class="level2 padding-top-5">
-                                                <div class="logout">
-                                                <button class="logout" style="border: none; color: white; padding-right: 10px" onclick="window.location.href='<%=Utils.fullPath("dangxuat")%>';"><i class="fa fa-sign-out-alt"></i> Đăng xuất</button>
+                                                <div class="logout" style="padding-right: 10px">
+                                                <button class="logout" style="border: none; color: white" onclick="window.location.href='<%=Utils.fullPath("dangxuat")%>';"><i class="fa fa-sign-out-alt"></i> Đăng xuất</button>
                                                 </div>
                                             </li>
                                             <% } %>

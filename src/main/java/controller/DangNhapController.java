@@ -46,12 +46,25 @@ public class DangNhapController extends HttpServlet {
         if(taiKhoan != null) {
             HttpSession session = request.getSession();
             session.setAttribute("Auth", taiKhoan);
-            response.sendRedirect(request.getContextPath()+"/trangchu");
+            if(kiemTraQuyenDangNhap(taiKhoan).equals("ADMIN")) {
+            	traVeTrangQuanTri(request, response);
+            } else {
+            	traVeTrangChu(request, response);
+            }
         }
     }
 
     private void traVeTrangDangNhap(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/sign.jsp");
+        rd.forward(request, response);
+    }
+    
+    private void traVeTrangChu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	response.sendRedirect(request.getContextPath()+"/trangchu");
+    }
+    
+    private void traVeTrangQuanTri(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher rd = getServletContext().getRequestDispatcher("/admin.jsp");
         rd.forward(request, response);
     }
 
@@ -73,6 +86,10 @@ public class DangNhapController extends HttpServlet {
         RequestDispatcher rd = getServletContext().getRequestDispatcher("/sign.jsp");
         rd.forward(request, response);
     }
-
+    
+    private String kiemTraQuyenDangNhap(TaiKhoan taiKhoan) {
+    	if(taiKhoan.getQuyenTruyCap() == 1) return "ADMIN";
+    	return "USER";
+    }
 
 }
