@@ -99,6 +99,7 @@ public class TaiKhoanDao {
 				taiKhoan.setHoVaTen(rs.getString(2));
 				taiKhoan.setTenDangNhap(rs.getString(3));
 				taiKhoan.setEmail(rs.getString(4));
+				taiKhoan.setQuyenTruyCap(rs.getInt(6));
 			}
 			cons.close();
 		} catch (ClassNotFoundException | SQLException ex) {
