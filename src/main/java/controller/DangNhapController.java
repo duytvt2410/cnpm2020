@@ -42,13 +42,16 @@ public class DangNhapController extends HttpServlet {
         if(taiKhoan == null) {
             traVeThongBao("Tên đăng nhập hoặc mật khẩu không đúng", request, response);
         }
-        // --Nếu đúng thì Hệ thống sẽ trả về trang chủ, hiển thị thông tin đăng nhập và duy trì trạng thái đăng nhập
+        // --Nếu đúng thì Hệ thống hiển thị thông tin đăng nhập và duy trì trạng thái đăng nhập
         if(taiKhoan != null) {
             HttpSession session = request.getSession();
             session.setAttribute("Auth", taiKhoan);
+            //B3.1.3: Hệ thống kiểm tra quyền truy cập của tài khoản
             if(kiemTraQuyenDangNhap(taiKhoan).equals("ADMIN")) {
+            	//-- Nếu là ADMIN sẽ trả về giao diện trang quản trị
             	traVeTrangQuanTri(request, response);
-            } else {
+            } else if(kiemTraQuyenDangNhap(taiKhoan).equals("USER")){
+            	//-- Nếu là USER sẽ trả về giao diện trang chủ
             	traVeTrangChu(request, response);
             }
         }
