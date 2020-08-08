@@ -157,7 +157,7 @@
 
 		</form>
         <%} else {%>
-        <div class="alert alert-info">
+        <div class="alert alert-info mt-5">
             <h5><%=yeuCauXacThuc%></h5>
         </div>
         <% }%>
